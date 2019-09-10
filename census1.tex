@@ -1186,7 +1186,7 @@ text\_5 = map(pt.stem, text\_4)
 \only<7-9>{\invisible<1-6>{ {\tt  four, score, seven, years, ago, fathers, brought, forth, continent, new, nation, conceived, liberty, dedicated, proposition, men, created, equal }  } \pause \\}
 \invisible<1-7>{Step 4: Applying Stemming Algorithm} \pause \\
 \only<9-10>{ {\tt four, score, seven, year, ago, father, brought, forth, contin, new, nation, conceiv, liberti, dedic, proposit, men, creat, equal} \pause \\ }
-\invisible<1-9>{Step 5: Create Count Vector ({\tt Python Code!}) } \\
+\invisible<1-9>{Step 5: Create Count Vector  } \\
 \only<10-11>{\begin{tabular}{ll}
 Stem & Count \\
 ago & 1\\
@@ -1242,6 +1242,491 @@ $\vdots$ & $\vdots$
 \pause
 \invisible<1-5>{\alert{p.s. The hand-coders did the evaluation!}}
 \end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Pre-existing word weights$\leadsto$ Dictionaries}
+
+\invisible<1>{{\tt DICTION}}\\
+
+\invisible<1>{\only<2>{\scalebox{0.55}{\includegraphics{DICTION2.png}}}}
+\only<3>{\scalebox{0.55}{\includegraphics{DICTION3.png}}}
+\only<4>{\scalebox{0.55}{\includegraphics{DICTION4.png}}}
+\only<5>{\scalebox{0.85}{\includegraphics{DICTION5.png}}}
+\only<6>{\scalebox{0.85}{\includegraphics{DictionCost.png}}}
+
+\pause \pause \pause \pause \pause
+
+\end{frame}
+
+
+\begin{frame}
+
+\scalebox{0.75}{\includegraphics{Year.jpg}}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Dictionary Methods}
+
+
+Many Dictionary Methods (like DICTION) \pause
+
+\begin{itemize}
+\invisible<1>{\item[1)] Proprietary}\pause\invisible<1-2>{$\leadsto$ wrapped in GUI} \pause
+\invisible<1-3>{\item[2)] Basic tasks:} \pause
+\begin{itemize}
+\invisible<1-4>{\item[a)] Count words} \pause
+\invisible<1-5>{\item[b)] Weighted counts of words} \pause
+\invisible<1-6>{\item[c)] Some graphics}\pause
+\end{itemize}
+\invisible<1-7>{\item[3)] Pricey$\leadsto$ \alert{inexplicably}}
+\end{itemize}
+
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{DICTION}
+
+
+
+\begin{columns}[]
+
+\column{0.5\textwidth}
+\scalebox{0.15}{\includegraphics{PolTone.jpg}}
+
+
+\column{0.5\textwidth}
+\pause
+\begin{itemize}
+\item[-] \invisible<1>{$\{$ Certain, Uncertain $\}$}\pause\invisible<1-2>{\\, $\{$ Optimistic, Pessimistic $\}$} \pause
+\item[-] \invisible<1-3>{$\approx$ 10,000 words} \pause
+\end{itemize}
+
+
+\invisible<1-4>{Applies DICTION to a wide array of political texts\\} \pause
+\invisible<1-5>{Examine specific periods of American political history}
+
+
+\end{columns}
+
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Other Dictionaries }
+
+
+\begin{itemize}
+\item[1)] General Inquirer Database (\url{http://www.wjh.harvard.edu/~inquirer/} ) \pause
+\begin{itemize}
+\invisible<1>{\item[-] Stone, P.J., Dumphy, D.C., and Ogilvie, D.M. (1966) \emph{The General Inquirer: A Computer Approach to Content Analysis}} \pause
+\invisible<1-2>{\item[-] $\{$ Positive, Negative $\}$ } \pause
+\invisible<1-3>{\item[-] 3627 negative and positive word strings } \pause
+\invisible<1-4>{\item[-] Workhorse for classification across many domains/papers} \pause
+\end{itemize}
+\invisible<1-5>{\item[2)] Linguistic Inquiry Word Count (LIWC)} \pause
+\begin{itemize}
+\invisible<1-6>{\item[-] Creation process:} \pause
+\begin{itemize}
+\invisible<1-7>{\item[1)] Generate word list for categories$\leadsto$ `` We drew on common emotion rating scales...Roget's Thesaurus...standard English dictionaries. [then] brain-storming sessions among 3-6 judges were held" to generate other words } \pause
+\invisible<1-8>{\item[2)] Judge round$\leadsto$ (a) Does the word belong? (b) What other categories might it belong to?} \pause
+\end{itemize}
+\invisible<1-9>{\item[-] $\{$ Positive emotion, Negative emotion $\}$} \pause
+\invisible<1-10>{\item[-] 2300 words grouped into 70 classes} \pause
+\end{itemize}
+\invisible<1-11>{\item[-] Harvard-IV-4 } \pause
+\invisible<1-12>{\item[-] Affective Norms for English Words (we'll discuss this more later)} \pause
+\invisible<1-13>{\item[-] ...}
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Generating New Words}
+
+Three ways to create dictionaries (non-exhaustive): \pause
+\begin{itemize}
+\invisible<1>{\item[-] Statistical methods (Separating methods)} \pause
+\invisible<1-2>{\item[-] Manual generation } \pause
+\begin{itemize}
+\invisible<1-3>{\item[-] Careful thought (prayer? epiphanies? divine intervention?) about useful words} \pause
+\end{itemize}
+\invisible<1-4>{\item[-] Populations of people who are surprisingly willing to perform ill-defined tasks} \pause
+\begin{itemize}
+\invisible<1-5>{\item[a)] Undergraduates$:\text{Pizza}\rightarrow \text{Research Output}$} \pause
+\invisible<1-6>{\item[b)] Mechanical turkers} \pause
+\begin{itemize}
+\invisible<1-7>{\item[-] Example: $\{$ Happy, Unhappy $\}$ } \pause
+\invisible<1-8>{\item[-] Ask turkers: how happy is } \pause
+\invisible<1-9>{\item[] {\tt elevator}, {\tt car}, {\tt pretty}, {\tt young} } \pause
+\invisible<1-10>{\item[] Output as dictionary}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Applying Methods to Documents}
+
+Applying the model: \pause
+\begin{itemize}
+\invisible<1>{\item[-] Vector of word counts:  $\boldsymbol{X}_i = (X_{i1}, X_{i2}, \hdots, X_{iK})$, $(i = 1, \hdots, N)$} \pause
+\invisible<1-2>{\item[-] Weights attached to words  $\boldsymbol{\theta} = (\theta_{1}, \theta_{2}, \hdots, \theta_{K})$  } \pause
+\begin{itemize}
+\invisible<1-3>{\item[-] $\theta_{k} \in \{0,1\}$} \pause
+\invisible<1-4>{\item[-] $\theta_{k} \in \{-1, 0, 1 \}$} \pause
+\invisible<1-5>{\item[-] $\theta_{k} \in \{-2, -1, 0, 1, 2\}$} \pause
+\invisible<1-6>{\item[-] $\theta_{k} \in \Re$} \pause
+\end{itemize}
+\end{itemize}
+
+\invisible<1-7>{For each document $i$ calculate score for document } \pause
+\begin{eqnarray}
+\invisible<1-8>{Y_i  & = &  \frac{\sum_{k=1}^{K} \theta_k X_{ik}}{\sum_{k=1}^{K} X_{k}} \nonumber \\} \pause
+\invisible<1-9>{Y_i  & = &  \frac{\boldsymbol{\theta}^{'} \boldsymbol{X}_i}{\boldsymbol{X}_{i}^{'} \boldsymbol{1} } \nonumber } \pause
+\end{eqnarray}
+
+\invisible<1-10>{$Y_{i} \approx $ continuous $\leadsto$ Classification} \pause
+\begin{itemize}
+\invisible<1-11>{\item[] $Y_i> 0 \Rightarrow$ Positive Category} \pause
+\invisible<1-12>{\item[] $Y_i< 0 \Rightarrow$ Negative Category} \pause
+\invisible<1-13>{\item[] $Y_i \approx 0$ Ambiguous}
+\end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Applying a Dictionary to Press Releases}
+
+\pause
+\begin{itemize}
+\invisible<1>{\item[-] Collection of 169,779 press releases (US House members 2005-2010)} \pause
+\invisible<1-2>{\item[-] Dictionary from Neal Caren's website $\leadsto$ Theresa Wilson, Janyce Wiebe, and Paul Hoffman's dictionary } \pause
+\invisible<1-3>{\item[-] Create positive/negative score for press releases.  }
+\end{itemize}
+
+
+
+
+
+
+
+\pause
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Examining Positive and Negative Statements in Press Releases}
+
+\pause
+
+\only<1-10>{
+\invisible<1>{Least positive members of Congress:}
+\begin{itemize}
+\invisible<1-2>{\item[1)] Dan Burton, 2008}
+\invisible<1-3>{\item[2)] Nancy Pelosi, 2007}
+\invisible<1-4>{\item[3)] Mike Pence 2007}
+\invisible<1-5>{\item[4)] John Boehner, 2009}
+\invisible<1-6>{\item[5)] Jeff Flake, (basically all years)}
+\invisible<1-7>{\item[6)] Eric Cantor, 2009}
+\invisible<1-8>{\item[7)] Tom Price, 2010}
+\end{itemize}
+
+\invisible<1-9>{Legislators who are more extreme$\leadsto$ less positive in press releases}
+
+}
+
+
+\only<11>{\scalebox{0.5}{\includegraphics{pressOverTime.pdf}}}
+
+\only<12-13>{
+\begin{itemize}
+\item[-] Credit Claiming press release: 9.1 percentage points ``more positive" than a non-credit claiming press release
+\invisible<1-12>{\item[-] Anti-spending press release: 10.6 percentage points ``less positive" than a non-anti spending press release}
+\end{itemize}
+}
+
+\only<14>{\scalebox{0.5}{\includegraphics{CreditPositive.pdf}}}
+\only<15->{\scalebox{0.5}{\includegraphics{AntiCreditPositive.pdf}}}
+
+
+
+
+
+
+\pause \pause \pause \pause \pause\pause \pause \pause \pause \pause \pause \pause \pause \pause
+
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Methodological Issues/Problems with Dictionaries}
+
+\alert{Dictionary methods are context invariant} \pause \\
+\begin{itemize}
+\invisible<1>{\item[-] No optimization step $\leadsto$ same word weights regardless of texts} \pause
+\invisible<1-2>{\item[-] Optimization$\leadsto$ incorporate information specific to context} \pause
+\invisible<1-3>{\item[-] Without optimization$\leadsto$ unclear about dictionaries performance} \pause
+\end{itemize}
+
+
+
+\invisible<1-4>{\alert{Just because dictionaries provide measures labeled ``positive" or ``negative" it doesn't mean they are accurate measures in your text} (!!!!) \\} \pause
+
+\vspace{0.5in}
+
+\invisible<1-5>{{\huge \alert{Validation}}}
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Validation}
+
+Classification Validity: \pause
+\begin{itemize}
+\invisible<1>{\item[-] \alert{Training}: build dictionary on subset of documents \alert{with known labels}} \pause
+\invisible<1-2>{\item[-] \alert{Test}: apply dictionary method to other documents \alert{with known labels}} \pause
+\invisible<1-3>{\item[-] Requires hand coded documents} \pause
+\invisible<1-4>{\item[-] Hand coded documents useful for other reasons} \pause
+\begin{itemize}
+\invisible<1-5>{\item[-] Is the classification scheme well defined for your texts?} \pause
+\invisible<1-6>{\item[-] Can humans accomplish the coding task?} \pause
+\invisible<1-7>{\item[-] Is the dictionary your using appropriate?} \pause
+\end{itemize}
+\end{itemize}
+
+\large
+\invisible<1-8>{\alert{Replicate} classification exercise}  \pause
+\normalsize
+\begin{itemize}
+\invisible<1-9>{\item[-] How well does our method perform on \alert{held out} documents?} \pause
+\invisible<1-10>{\item[-] Why held out?} \pause \invisible<1-11>{\alert{Over fitting} } \pause
+\invisible<1-12>{\item[-] Using off-the-shelf dictionary: all labeled documents to test} \pause
+\invisible<1-13>{\item[-] Supervised learning classification: \alert{(Cross)validation} }
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Hand Coding: A Brief Digression}
+
+\alert{Humans should be able to classify documents into the categories you want the machine to classify them in} \pause
+\begin{itemize}
+\invisible<1>{\item[-] This is \alert{hard}} \pause
+\invisible<1-2>{\item[-] Why? } \pause
+\begin{itemize}
+\invisible<1-3>{\item[-] Ambiguity in language} \pause
+\invisible<1-4>{\item[-] Limited working memory} \pause
+\invisible<1-5>{\item[-] Ambiguity in classification rules} \pause
+\end{itemize}
+\invisible<1-6>{\item[-] A procedure for training coders: } \pause
+\invisible<1-7>{\begin{itemize}
+\item[1)] Coding rules
+\item[2)] Apply to new texts
+\item[3)] Assess coder agreement (we'll discuss more in a few weeks)
+\item[4)] Using information and discussion, revise coding rules
+\end{itemize}}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Assessing Classification}
+
+Measures of classification performance
+
+\begin{tabular}{l|l|l}
+ \hline
+  & \multicolumn{2}{c}{Actual Label}  \\
+  \hline
+  Guess &   Liberal & Conservative \\
+  \hline
+  Liberal &  \alert{True Liberal} & False Liberal \\
+  \hline
+  Conservative & False Conservative & \alert{True Conservative} \\
+  \hline
+  \hline
+\end{tabular}
+
+\pause
+\begin{eqnarray}
+\invisible<1>{\text{Accuracy} & = & \frac{ \alert{\text{TrueLib} }+ \alert{\text{TrueCons}}  } { \alert{\text{TrueLib} } + \alert{\text{TrueCons}} + \text{FalseLib} + \text{FalseCons} } \nonumber } \pause  \\
+\invisible<1-2>{\text{Precision}_{\text{Liberal}} &= &   \frac{ \alert{\text{True Liberal}}    }  { \alert{\text{True Liberal }} + \text{False Liberal}      } } \pause  \nonumber \\
+\invisible<1-3>{\text{Recall}_{\text{Liberal} } & = & \frac{ \alert{\text{True Liberal}}   } { \alert{\text{True Liberal}} + \text{False Conservative}   } } \pause  \nonumber \\
+\invisible<1-4>{F_{\text{Liberal}} & = & \frac{ 2\text{Precision}_{\text{Liberal}} \text{Recall}_{\text{Liberal} } } { \text{Precision}_{\text{Liberal}} +  \text{Recall}_{\text{Liberal} }} }   \nonumber \pause
+\end{eqnarray}
+
+\invisible<1-5>{\alert{Under reported for dictionary classification} }
+\end{frame}
+
+
+\begin{frame}
+\frametitle{What about continuous measures?}
+
+\pause
+
+\invisible<1>{\alert{Necessarily more complicated}\\} \pause
+
+\begin{itemize}
+\invisible<1-2>{\item[-] Go back to hand coding exercise} \pause
+\invisible<1-3>{\item[-] Imagine asking undergraduates to rate document on a continuous scale (0-100)} \pause
+\invisible<1-4>{\item[-] \alert{Difficult} to create classifications with agreement} \pause
+\invisible<1-5>{\item[-] \alert{Precisely} the point$\leadsto$ merely creating a gold standard is hard, let alone computer classification} \pause
+\end{itemize}
+
+\invisible<1-6>{\alert{Lower level classification}}\pause\invisible<1-7>{$\leadsto$ label phrases and then aggregate} \pause \\
+
+\invisible<1-8>{Modifiable areal unit problem in texts}\pause$\leadsto$\invisible<1-9>{aggregating destroys information, conclusion may depend on level of aggregation}
+
+
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Validation, Dictionaries from other Fields}
+\pause
+\invisible<1>{Accounting Research: measure \alert{tone} of \alert{10-K} reports} \pause
+\begin{itemize}
+%\item[-] Comprehensive public summary of company performance
+\invisible<1-2>{\item[-] \alert{tone} matters (\$)} \pause
+\end{itemize}
+
+\invisible<1-3>{Previous state of art: Harvard-IV-4 Dictionary applied to texts} \\
+\invisible<1-4>{Loughran and McDonald (2011): \alert{Financial Documents are Different}, \textcolor{blue}{polysemes} } \pause
+\begin{itemize}
+\invisible<1-5>{\item[-] Negative words in Harvard, Not Negative in Accounting: \\} \pause
+\invisible<1-6>{{\tt tax, cost, capital, board, liability, foreign,  cancer, crude (oil), tire } } \pause
+\invisible<1-7>{\item[-] \alert{73\%} of Harvard negative words in this set(!!!!!)} \pause
+\invisible<1-8>{\item[-] Not Negative Harvard, Negative in Accounting: \\} \pause
+\invisible<1-9>{{\tt felony, litigation, restated, misstatement, unanticipated} } \pause
+\end{itemize}
+
+
+\large
+\invisible<1-10>{\alert{Context Matters}}
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Measuring Happiness}
+
+\begin{columns}[]
+\column{0.5\textwidth}
+\scalebox{0.35}{\includegraphics{Bentham.jpg}}
+
+\column{0.5\textwidth}
+
+\pause
+\begin{itemize}
+\invisible<1>{\item[-] Quantifying Happiness: How happy is society?} \pause
+\invisible<1-2>{\item[-] How Happy is a Song?} \pause
+\invisible<1-3>{\item[-] Blog posts?} \pause
+\invisible<1-4>{\item[-] Facebook posts? (Gross National Happiness)} \pause
+\end{itemize}
+
+\invisible<1-5>{Use \alert{Dictionary Methods} }
+
+\end{columns}
+
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Measuring Happiness}
+
+Dodds and Danforth (2009): Use a dictionary method to measure happiness \pause
+\begin{itemize}
+\invisible<1>{\item[-]  \alert{Affective Norms for English Words} (ANEW)} \pause
+\invisible<1-2>{\item[-] Bradley and Lang 1999:  1034 words, Affective reaction to words} \pause
+\begin{itemize}
+\invisible<1-3>{\item[-] On a scale of 1-9 how happy does this word make you?} \pause
+\invisible<1-4>{\item[] \alert{Happy} : triumphant (8.82)/paradise (8.72)/ love (8.72) } \pause
+\invisible<1-5>{\item[] \alert{Neutral}: street (5.22)/ paper (5.20)/ engine (5.20) } \pause
+\invisible<1-6>{\item[] \alert{Unhappy} : cancer (1.5)/funeral (1.39)/ rape (1.25) /suicide (1.25) } \pause
+\end{itemize}
+\invisible<1-7>{\item[-] \alert{Happiness} for text $i$ (with word $j$ having happiness $\theta_j$ and document frequence $X_{ij}$)} \pause
+\begin{eqnarray}
+\invisible<1-8>{\text{Happiness}_{i}  & = & \frac{ \sum_{k=1}^{K} \theta_{k} X_{ik} } { \sum_{k=1}^{K} X_{ik}} }  \nonumber
+\end{eqnarray}
+\end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+
+
+
+\scalebox{0.5}{\includegraphics{BillyJean.png}}
+\pause
+
+
+\invisible<1>{\alert{Homework Hints}:}
+\invisible<1>{One approach: write a {\tt for} loop searching for words in dictionary (caution: is dictionary stemmed?) }\\ \pause
+\invisible<1-2>{Happiest Song on Thriller?}  \\ \pause
+\invisible<1-3>{\alert{P.Y.T. (Pretty Young Thing) }   (This is the right answer!)}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Happiness in Society}
+
+\only<1>{\scalebox{1}{\includegraphics{SongHappiness.png}}}
+\only<2>{\scalebox{1}{\includegraphics{SongType.png}}}
+\only<3>{\scalebox{0.7}{\includegraphics{Blog.png}}}
+
+\end{frame}
+
+
+
 
 
 \end{document}
